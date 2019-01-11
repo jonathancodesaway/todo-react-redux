@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import ToDoList from "./ToDoList";
 import {onAdd, onRemove} from "../Actions";
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 
     return{
         title: state.title,
@@ -12,20 +12,20 @@ const mapStateToProps = (state, ownProps) => {
     }
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
 
     return{
 
-        onAdd: ()=>{
-            dispatch(onAdd());
+        onAdd: (summary) => {
+            dispatch(onAdd(summary));
         },
 
-        onRemove: () => {
-            dispatch(onRemove());
+        onRemove: (summary) => {
+            dispatch(onRemove(summary));
         }
     }
 };
 
-const ToDoApp = connect((mapStatetoProps,mapDispatchToProps)(ToDoList);
+const ToDoApp = connect(mapStateToProps, mapDispatchToProps)(ToDoList);
 
 export default ToDoApp; 

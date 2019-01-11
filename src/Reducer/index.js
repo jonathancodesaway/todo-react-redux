@@ -7,14 +7,14 @@ const initialState = {
     isDone: false
 }
 
-export default (state= initialState, action) => {
+export default (state=initialState, action) => {
     switch (action.type) {
         case ADD:
           return Object.assign({}, state, 
             state.title = action.title,
             state.body = action.body,
             state.date = (Date.now()).toString(),
-            isDone= false
+            state.isDone= false
             );
     
         case REMOVE:
